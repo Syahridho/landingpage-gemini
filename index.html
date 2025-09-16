@@ -152,6 +152,18 @@
         }
       }
 
+      @media (min-width: 1024px) {
+        .image-container {
+          height: 400px; /* fix tinggi */
+          aspect-ratio: unset; /* matikan rasio bawaan */
+        }
+
+        .image-container img {
+          height: 100%;
+          object-fit: cover; /* biar nggak gepeng */
+        }
+      }
+
       /* Added attractive accent colors */
       .accent-gradient {
         background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
