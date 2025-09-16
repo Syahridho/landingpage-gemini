@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panduan Gemini Pro - Tutorial Lengkap</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+      * {
+        font-family: "Inter", sans-serif;
+      }
+
+      /* Updated to attractive gradient colors */
+      .gradient-bg {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+
+      .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
+      }
+
+      /* Updated step numbers with attractive colors */
+      .step-number {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+
+      .loading-animation {
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+
+      .floating {
+        animation: floating 3s ease-in-out infinite;
+      }
+
+      @keyframes floating {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      /* Added modal styles for image viewing */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+      }
+
+      .modal-content {
+        margin: auto;
+        display: block;
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+      }
+
+      .modal-content {
+        animation: zoom 0.3s;
+      }
+
+      @keyframes zoom {
+        from {
+          transform: scale(0);
+        }
+        to {
+          transform: scale(1);
+        }
+      }
+
+      .close {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+        cursor: pointer;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: #bbb;
+        text-decoration: none;
+      }
+
+      /* Responsive image container with fixed aspect ratio */
+      .image-container {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 720/1600;
+        overflow: hidden;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+
+      .image-container:hover {
+        transform: scale(1.02);
+      }
+
+      .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* Enhanced responsive design */
+      @media (max-width: 768px) {
+        .step-content {
+          flex-direction: column;
+        }
+
+        .step-number {
+          margin-bottom: 1rem;
+          margin-right: 0;
+        }
+
+        .image-container {
+          max-width: 300px;
+          margin: 0 auto;
+        }
+      }
+
+      /* Added attractive accent colors */
+      .accent-gradient {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      }
+
+      .success-gradient {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      }
+
+      .warning-gradient {
+        background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+      }
+    </style>
+  </head>
+  <body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <!-- Updated loading screen with attractive colors -->
+    <!-- <div
+      id="loading"
+      class="fixed inset-0 bg-gradient-to-br from-indigo-500 to-purple-600 z-50 flex items-center justify-center"
+    >
+      <div class="text-center">
+        <div
+          class="w-16 h-16 border-4 border-white border-opacity-30 border-t-white rounded-full animate-spin mb-4"
+        ></div>
+        <p class="text-white text-lg font-medium">Loading AI Tutorial...</p>
+      </div>
+    </div> -->
+
+    <!-- Updated header with attractive gradient design -->
+    <header class="gradient-bg text-white py-20 relative overflow-hidden">
+      <div class="absolute inset-0 bg-black opacity-10"></div>
+      <div class="container mx-auto px-4 sm:px-6 relative z-10">
+        <div class="text-center" data-aos="fade-up">
+          <div class="floating mb-6">
+            <i
+              class="fas fa-robot text-4xl sm:text-6xl mb-4 text-white opacity-90"
+            ></i>
+          </div>
+          <h1
+            class="text-3xl sm:text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent"
+          >
+            Panduan Gemini Pro
+          </h1>
+          <p
+            class="text-lg sm:text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto"
+          >
+            Tutorial Lengkap Menggunakan AI Terdepan
+          </p>
+          <a
+            href="https://gsaid.short.gy/459"
+            target="_blank"
+            class="inline-block bg-white bg-opacity-20 backdrop-blur-sm px-6 sm:px-8 py-3 rounded-full text-white font-semibold shadow-lg hover:bg-opacity-30 transition-all duration-300 border border-white border-opacity-30"
+          >
+            Daftar Sekarang
+          </a>
+        </div>
+      </div>
+
+      <!-- Updated floating elements with attractive colors -->
+      <div
+        class="absolute top-20 left-10 w-20 h-20 bg-pink-400 rounded-full opacity-30 floating"
+      ></div>
+      <div
+        class="absolute bottom-20 right-10 w-32 h-32 bg-blue-400 rounded-full opacity-30 floating"
+        style="animation-delay: 1s"
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-16 h-16 bg-purple-400 rounded-full opacity-20 floating"
+        style="animation-delay: 2s"
+      ></div>
+    </header>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="modalImage" />
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 sm:px-6 py-16">
+      <!-- Step 1 with attractive gradient -->
+      <section class="mb-16" data-aos="fade-up" data-aos-delay="100">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover">
+          <div
+            class="bg-gradient-to-r from-indigo-500 to-purple-600 p-4 sm:p-6"
+          >
+            <div
+              class="flex flex-col sm:flex-row items-start sm:items-center step-content"
+            >
+              <div
+                class="step-number w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mr-0 sm:mr-4 mb-4 sm:mb-0"
+              >
+                1
+              </div>
+              <div>
+                <h2 class="text-xl sm:text-2xl font-bold text-white mb-2">
+                  Mulai Proses Verifikasi
+                </h2>
+                <p class="text-gray-200 text-sm sm:text-base">
+                  Kunjungi halaman penawaran Gemini untuk mahasiswa, lalu klik
+                  tombol 'Verifikasi kelayakan' untuk memulai.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 sm:p-8">
+            <div class="bg-gray-50 rounded-xl p-4 sm:p-6">
+              <div
+                class="image-container mx-auto"
+                onclick="openModal('./image/1.jpeg')"
+              >
+                <img
+                  src="./image/1.jpeg"
+                  alt="Mulai Proses Verifikasi"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 2 with attractive gradient -->
+      <section class="mb-16" data-aos="fade-up" data-aos-delay="200">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover">
+          <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-4 sm:p-6">
+            <div
+              class="flex flex-col sm:flex-row items-start sm:items-center step-content"
+            >
+              <div
+                class="step-number w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mr-0 sm:mr-4 mb-4 sm:mb-0"
+              >
+                2
+              </div>
+              <div>
+                <h2 class="text-xl sm:text-2xl font-bold text-white mb-2">
+                  Isi Data Diri
+                </h2>
+                <p class="text-gray-200 text-sm sm:text-base">
+                  Lengkapi formulir verifikasi dengan data yang valid, seperti
+                  negara, nama universitas, nama lengkap, tanggal lahir dan
+                  email domain kampus sesuai dengan data akademik kamu.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 sm:p-8">
+            <div class="bg-gray-50 rounded-xl p-4 sm:p-6">
+              <div
+                class="image-container mx-auto"
+                onclick="openModal('./image/2.jpeg')"
+              >
+                <img
+                  src="./image/2.jpeg"
+                  alt="Isi Data Diri"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 3 with attractive gradient -->
+      <section class="mb-16" data-aos="fade-up" data-aos-delay="300">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover">
+          <div class="bg-gradient-to-r from-blue-500 to-cyan-500 p-4 sm:p-6">
+            <div
+              class="flex flex-col sm:flex-row items-start sm:items-center step-content"
+            >
+              <div
+                class="step-number w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mr-0 sm:mr-4 mb-4 sm:mb-0"
+              >
+                3
+              </div>
+              <div>
+                <h2 class="text-xl sm:text-2xl font-bold text-white mb-2">
+                  Verifikasi Melalui Portal Akademik
+                </h2>
+                <p class="text-gray-200 text-sm sm:text-base">
+                  Kamu akan diarahkan ke halaman verifikasi SheerID. Klik 'Masuk
+                  ke lembaga akademik saya' dan login menggunakan akun email
+                  kampusmu.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 sm:p-8">
+            <div class="bg-gray-50 rounded-xl p-4 sm:p-6">
+              <div
+                class="image-container mx-auto"
+                onclick="openModal('./image/3.jpeg')"
+              >
+                <img
+                  src="./image/3.jpeg"
+                  alt="Verifikasi Melalui Portal Akademik"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 4 with attractive gradient -->
+      <section class="mb-16" data-aos="fade-up" data-aos-delay="400">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover">
+          <div class="bg-gradient-to-r from-green-500 to-teal-500 p-4 sm:p-6">
+            <div
+              class="flex flex-col sm:flex-row items-start sm:items-center step-content"
+            >
+              <div
+                class="step-number w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mr-0 sm:mr-4 mb-4 sm:mb-0"
+              >
+                4
+              </div>
+              <div>
+                <h2 class="text-xl sm:text-2xl font-bold text-white mb-2">
+                  Upload Bukti
+                </h2>
+                <p class="text-gray-200 text-sm sm:text-base">
+                  Upload bukti seperti ktm, bukti pembayaran kampus, dan lain
+                  lain (salah satu)
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 sm:p-8">
+            <div class="bg-gray-50 rounded-xl p-4 sm:p-6">
+              <div
+                class="image-container mx-auto"
+                onclick="openModal('./image/4.jpeg')"
+              >
+                <img
+                  src="./image/4.jpeg"
+                  alt="Upload Bukti"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 5 with attractive gradient -->
+      <section class="mb-16" data-aos="fade-up" data-aos-delay="500">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover">
+          <div class="bg-gradient-to-r from-orange-500 to-red-500 p-4 sm:p-6">
+            <div
+              class="flex flex-col sm:flex-row items-start sm:items-center step-content"
+            >
+              <div
+                class="step-number w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mr-0 sm:mr-4 mb-4 sm:mb-0"
+              >
+                5
+              </div>
+              <div>
+                <h2 class="text-xl sm:text-2xl font-bold text-white mb-2">
+                  Jika tidak berhasil
+                </h2>
+                <p class="text-gray-200 text-sm sm:text-base">
+                  Jika tidak berhasil ada bisa mengupload berkas yang
+                  berhubungan dengan kuliah anda.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 sm:p-8">
+            <div class="bg-gray-50 rounded-xl p-4 sm:p-6">
+              <div
+                class="image-container mx-auto"
+                onclick="openModal('./image/5.jpeg')"
+              >
+                <img
+                  src="./image/5.jpeg"
+                  alt="Jika tidak berhasil"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 6 with attractive gradient -->
+      <section class="mb-16" data-aos="fade-up" data-aos-delay="600">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover">
+          <div
+            class="bg-gradient-to-r from-yellow-500 to-orange-500 p-4 sm:p-6"
+          >
+            <div
+              class="flex flex-col sm:flex-row items-start sm:items-center step-content"
+            >
+              <div
+                class="step-number w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mr-0 sm:mr-4 mb-4 sm:mb-0"
+              >
+                6
+              </div>
+              <div>
+                <h2 class="text-xl sm:text-2xl font-bold text-white mb-2">
+                  Tunggu
+                </h2>
+                <p class="text-gray-200 text-sm sm:text-base">
+                  Tunggu sekitar 20 detik agar sistem memeriksa berkas anda
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 sm:p-8">
+            <div class="bg-gray-50 rounded-xl p-4 sm:p-6">
+              <div
+                class="image-container mx-auto"
+                onclick="openModal('./image/6.jpeg')"
+              >
+                <img
+                  src="./image/6.jpeg"
+                  alt="Tunggu"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 7 with attractive gradient -->
+      <section class="mb-16" data-aos="fade-up" data-aos-delay="700">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover">
+          <div
+            class="bg-gradient-to-r from-emerald-500 to-green-500 p-4 sm:p-6"
+          >
+            <div
+              class="flex flex-col sm:flex-row items-start sm:items-center step-content"
+            >
+              <div
+                class="step-number w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mr-0 sm:mr-4 mb-4 sm:mb-0"
+              >
+                7
+              </div>
+              <div>
+                <h2 class="text-xl sm:text-2xl font-bold text-white mb-2">
+                  Berhasil Berlangganan!
+                </h2>
+                <p class="text-gray-200 text-sm sm:text-base">
+                  Selamat! Kamu sekarang sudah berlangganan Google One AI Pro.
+                  Kamu bisa mengelola langgananmu melalui pengaturan akun Google
+                  Play.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 sm:p-8">
+            <div class="bg-gray-50 rounded-xl p-4 sm:p-6">
+              <div
+                class="image-container mx-auto"
+                onclick="openModal('./image/7.jpeg')"
+              >
+                <img
+                  src="./image/7.jpeg"
+                  alt="Berhasil Berlangganan"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Updated CTA section with attractive gradient -->
+      <section class="text-center" data-aos="fade-up" data-aos-delay="800">
+        <div
+          class="bg-gradient-to-r from-indigo-600 to-purple-700 rounded-2xl p-8 sm:p-12 text-white shadow-2xl"
+        >
+          <h2 class="text-2xl sm:text-4xl font-bold mb-6">
+            Siap Memulai Perjalanan AI Anda?
+          </h2>
+          <p class="text-lg sm:text-xl mb-8 text-indigo-100 max-w-3xl mx-auto">
+            Bergabunglah dengan ribuan mahasiswa yang sudah merasakan kekuatan
+            Gemini Pro
+          </p>
+          <a
+            href="https://gsaid.short.gy/459"
+            target="_blank"
+            class="inline-block bg-white text-indigo-600 px-6 sm:px-8 py-4 rounded-full font-bold text-lg hover:bg-indigo-50 transition-colors shadow-lg"
+          >
+            Mulai Verifikasi Sekarang
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Updated footer with attractive gradient -->
+    <footer
+      class="bg-gradient-to-r from-gray-900 to-indigo-900 text-white py-8 text-center"
+    >
+      <p>&copy; 2024 Gemini Pro Guide. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        easing: "ease-in-out",
+        once: true,
+      });
+
+      // Loading screen
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          document.getElementById("loading").style.opacity = "0";
+          setTimeout(function () {
+            document.getElementById("loading").style.display = "none";
+          }, 500);
+        }, 1000);
+      });
+
+      function openModal(imageSrc) {
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        modal.style.display = "block";
+        modalImg.src = imageSrc;
+      }
+
+      // Close modal when clicking the X or outside the image
+      document.querySelector(".close").onclick = function () {
+        document.getElementById("imageModal").style.display = "none";
+      };
+
+      document.getElementById("imageModal").onclick = function (e) {
+        if (e.target === this) {
+          this.style.display = "none";
+        }
+      };
+
+      // Close modal with Escape key
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          document.getElementById("imageModal").style.display = "none";
+        }
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Add interactive hover effects
+      document.querySelectorAll(".card-hover").forEach((card) => {
+        card.addEventListener("mouseenter", function () {
+          this.style.transform = "translateY(-5px)";
+        });
+
+        card.addEventListener("mouseleave", function () {
+          this.style.transform = "translateY(0)";
+        });
+      });
+
+      // Add parallax effect to header
+      window.addEventListener("scroll", function () {
+        const scrolled = window.pageYOffset;
+        const header = document.querySelector("header");
+        if (header) {
+          header.style.transform = `translateY(${scrolled * 0.5}px)`;
+        }
+      });
+    </script>
+  </body>
+</html>
