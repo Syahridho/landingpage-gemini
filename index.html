@@ -13,6 +13,35 @@
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
+      body {
+        background: linear-gradient(
+          135deg,
+          #1e1b4b 0%,
+          #312e81 50%,
+          #1e40af 100%
+        );
+        min-height: 100vh;
+      }
+      .gradient-text {
+        background: linear-gradient(45deg, #fbbf24, #f59e0b);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .glass-effect {
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .warning-box {
+        background: rgba(251, 191, 36, 0.1);
+        border-left: 4px solid #fbbf24;
+      }
+      .info-box {
+        background: rgba(59, 130, 246, 0.1);
+        border-left: 4px solid #3b82f6;
+      }
+
       * {
         font-family: "Inter", sans-serif;
       }
@@ -426,7 +455,8 @@
                 </h2>
                 <p class="text-gray-200 text-sm sm:text-base">
                   Jika tidak berhasil ada bisa mengupload berkas yang
-                  berhubungan dengan kuliah anda.
+                  berhubungan dengan kuliah anda Seperti: KTM, KRS, Bukti
+                  Pembayaran dan Konversi (Makin banyak makin bagus).
                 </p>
               </div>
             </div>
@@ -553,6 +583,262 @@
           </a>
         </div>
       </section>
+
+      <!-- Warning Notice -->
+      <div class="warning-box rounded-lg p-6 my-8" data-aos="fade-up">
+        <div class="flex items-start space-x-3">
+          <div class="text-yellow-500 mt-1">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                fill-rule="evenodd"
+                d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="gradient-text text-lg font-bold mb-3">
+              PERHATIAN: Langganan Berulang!
+            </h3>
+            <p class="text-sm gradient-text leading-relaxed">
+              Meskipun gratis selama 1 tahun, kamu tetap harus memasukkan metode
+              pembayaran. Langganan akan diperpanjang otomatis dengan harga
+              normal setelah masa gratis berakhir. Pasang pengingat untuk
+              membatalkannya jika tidak ingin melanjutkan.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Already Subscribed Notice -->
+      <div
+        class="info-box rounded-lg p-6 mb-8"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        <div class="flex items-start space-x-3">
+          <div class="text-blue-400 mt-1">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                fill-rule="evenodd"
+                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-blue-500 text-lg font-bold mb-3">
+              Sudah Terlanjur Berlangganan?
+            </h3>
+            <p class="text-blue-500 text-sm leading-relaxed">
+              Jika kamu sudah memiliki langganan Google One yang aktif, kamu
+              mungkin perlu membatalkan paket tersebut terlebih dahulu untuk
+              bisa mengklaim penawaran khusus mahasiswa ini.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div
+        class="glass-effect rounded-xl p-8 bg-blue-800"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        <h2 class="text-white text-2xl font-bold mb-8 text-center">
+          FAQ Google AI Pro Upgrade
+        </h2>
+
+        <!-- FAQ Items -->
+        <div class="space-y-6">
+          <!-- FAQ 1 -->
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+            <button
+              class="faq-question w-full text-left p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-300 border border-white/10"
+            >
+              <div class="flex items-center justify-between">
+                <h3 class="text-white font-semibold text-lg pr-4">
+                  Saat mencoba upgrade ke Gemini Pro, saya mendapatkan pesan
+                  error: "Melebihi Batas Verifikasi", bagaimana mengatasinya?
+                </h3>
+                <svg
+                  class="faq-icon w-5 h-5 text-white/70 transition-transform duration-300"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </div>
+            </button>
+            <div
+              class="faq-answer max-h-0 overflow-hidden transition-all duration-300"
+            >
+              <div class="p-4 text-white/80 text-sm leading-relaxed space-y-3">
+                <p>
+                  Mohon pastikan bahwa akun yang digunakan adalah akun yang
+                  belum upgrade ke Google AI Pro.
+                </p>
+
+                <div class="space-y-2">
+                  <p>
+                    <strong
+                      >• Jika akun sudah upgrade dengan penawaran mahasiswa/i
+                      sebelumnya:</strong
+                    ><br />
+                    Tidak bisa di-upgrade berulang.
+                  </p>
+
+                  <p>
+                    <strong
+                      >• Jika akun sudah upgrade sebagai user regular (trial 1
+                      bulan):</strong
+                    ><br />
+                    Perlu dibatalkan/cancel upgrade dan menunggu sampai trialnya
+                    berakhir untuk upgrade kembali.
+                  </p>
+
+                  <p>
+                    <strong
+                      >• Jika sebelumnya pernah mencoba upgrade namun
+                      gagal:</strong
+                    ><br />
+                    Mohon pastikan dokumen yang diupload (misalnya KTM) memuat
+                    tanggal berlaku di tahun 2025 ini.
+                  </p>
+                </div>
+
+                <div class="bg-blue-500/20 p-3 rounded-lg mt-4">
+                  <p>
+                    <strong>Tips:</strong> Jika KTM tidak memuat masa berakhir,
+                    gunakan kombinasi KTM dengan dokumen lain (misalnya FRS /
+                    Print-out Sistem Akademik yang bertanggal) dalam 1 PDF.
+                  </p>
+                </div>
+
+                <div class="text-xs text-white/60 space-y-1">
+                  <p>• Verifikasi dilakukan oleh layanan SheerID</p>
+                  <p>
+                    • Jika mengalami kendala verifikasi, email ke:
+                    customerservice@sheerid.com
+                  </p>
+                  <p>
+                    • Proses mungkin gagal jika akun Gmail merupakan anggota
+                    Family Group. Gunakan akun independen.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+            <button
+              class="faq-question w-full text-left p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-300 border border-white/10"
+            >
+              <div class="flex items-center justify-between">
+                <h3 class="text-white font-semibold text-lg pr-4">
+                  Saat mencoba upgrade ke Gemini Pro, saya mendapatkan pesan
+                  error terkait pembayaran, bagaimana mengatasinya?
+                </h3>
+                <svg
+                  class="faq-icon w-5 h-5 text-white/70 transition-transform duration-300"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </div>
+            </button>
+            <div
+              class="faq-answer max-h-0 overflow-hidden transition-all duration-300"
+            >
+              <div class="p-4 text-white/80 text-sm leading-relaxed space-y-3">
+                <p>
+                  Pastikan metode pembayaran yang kamu input valid, dan untuk
+                  kartu debit/kredit/e-wallet telah diaktifkan untuk transaksi
+                  online.
+                </p>
+
+                <div class="space-y-2">
+                  <p>
+                    <strong>• Jika opsi e-wallet tidak muncul:</strong><br />
+                    Silakan ke
+                    <span class="text-blue-300"
+                      >https://play.google.com/store/paymentmethods</span
+                    >
+                    untuk menambahkan secara manual sebelum mencoba kembali.
+                  </p>
+
+                  <p>
+                    <strong>• Saldo minimum:</strong><br />
+                    Dianjurkan memiliki saldo sekitar Rp 20.000 untuk
+                    verifikasi.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+            <button
+              class="faq-question w-full text-left p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-300 border border-white/10"
+            >
+              <div class="flex items-center justify-between">
+                <h3 class="text-white font-semibold text-lg pr-4">
+                  Apakah di bulan ke-13 mahasiswa/i yang upgrade ini akan
+                  membayar langganan Google AI Pro?
+                </h3>
+                <svg
+                  class="faq-icon w-5 h-5 text-white/70 transition-transform duration-300"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </div>
+            </button>
+            <div
+              class="faq-answer max-h-0 overflow-hidden transition-all duration-300"
+            >
+              <div class="p-4 text-white/80 text-sm leading-relaxed space-y-3">
+                <p>
+                  <strong>Ya</strong>, sesuai dengan layar pembayaran, kamu akan
+                  ditagihkan biaya pada bulan ke-12 dan selanjutnya ke metode
+                  pembayaran yang dipilih.
+                </p>
+
+                <div class="bg-yellow-500/20 p-3 rounded-lg">
+                  <p>
+                    <strong>Cara menghindari pembayaran:</strong><br />
+                    Kamu dapat membatalkan trial sebelum batas waktu trial
+                    habis, dan trial kamu akan tetap aktif hingga 12 bulan sejak
+                    aktivasi pertama.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <!-- Updated footer with attractive gradient -->
@@ -571,6 +857,101 @@
         easing: "ease-in-out",
         once: true,
       });
+
+      // FAQ Accordion functionality
+      document.querySelectorAll(".faq-question").forEach((button) => {
+        button.addEventListener("click", () => {
+          const faqItem = button.parentElement;
+          const answer = faqItem.querySelector(".faq-answer");
+          const icon = button.querySelector(".faq-icon");
+
+          // Close all other FAQ items
+          document.querySelectorAll(".faq-item").forEach((item) => {
+            if (item !== faqItem) {
+              const otherAnswer = item.querySelector(".faq-answer");
+              const otherIcon = item.querySelector(".faq-icon");
+              otherAnswer.style.maxHeight = "0px";
+              otherIcon.style.transform = "rotate(0deg)";
+            }
+          });
+
+          // Toggle current FAQ item
+          if (answer.style.maxHeight && answer.style.maxHeight !== "0px") {
+            answer.style.maxHeight = "0px";
+            icon.style.transform = "rotate(0deg)";
+          } else {
+            answer.style.maxHeight = answer.scrollHeight + "px";
+            icon.style.transform = "rotate(180deg)";
+          }
+        });
+      });
+
+      // Smooth scroll for better UX
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Add some interactive hover effects
+      document.querySelectorAll(".faq-question").forEach((button) => {
+        button.addEventListener("mouseenter", () => {
+          button.style.transform = "translateY(-1px)";
+          button.style.boxShadow = "0 4px 20px rgba(255, 255, 255, 0.1)";
+        });
+
+        button.addEventListener("mouseleave", () => {
+          button.style.transform = "translateY(0)";
+          button.style.boxShadow = "none";
+        });
+      });
+
+      // Click to view full screen text
+      const clickHint = document.createElement("div");
+      clickHint.innerHTML = "Klik untuk melihat penuh";
+      clickHint.className =
+        "text-center text-white/60 text-xs mt-4 cursor-pointer hover:text-white/80";
+
+      // Add some dynamic background animation
+      const createFloatingParticle = () => {
+        const particle = document.createElement("div");
+        particle.className = "fixed pointer-events-none";
+        particle.style.left = Math.random() * window.innerWidth + "px";
+        particle.style.top = window.innerHeight + "px";
+        particle.style.width = Math.random() * 4 + 2 + "px";
+        particle.style.height = particle.style.width;
+        particle.style.background = `rgba(${Math.random() * 100 + 155}, ${
+          Math.random() * 100 + 155
+        }, 255, ${Math.random() * 0.3 + 0.1})`;
+        particle.style.borderRadius = "50%";
+        particle.style.zIndex = "-1";
+
+        document.body.appendChild(particle);
+
+        const animation = particle.animate(
+          [
+            { transform: "translateY(0px) translateX(0px)", opacity: 0.8 },
+            {
+              transform: `translateY(-${
+                window.innerHeight + 100
+              }px) translateX(${(Math.random() - 0.5) * 200}px)`,
+              opacity: 0,
+            },
+          ],
+          {
+            duration: Math.random() * 3000 + 2000,
+            easing: "linear",
+          }
+        );
+
+        animation.onfinish = () => particle.remove();
+      };
+
+      // Create floating particles periodically
+      setInterval(createFloatingParticle, 3000);
 
       // Loading screen
       window.addEventListener("load", function () {
